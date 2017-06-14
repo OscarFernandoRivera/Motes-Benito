@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="autor" content="Mayra Gaibor y Oscar Rivera">
+	<title>Motes Benito</title>
+</head>
+<body>
+			<center>
+
+				<table style="border: 1;">
+					<tr>
+						<td colspan="2">
+							<h1>Los Motes del Benito - Tienda online</h1>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h5>Cualquier plato a $0.50:  choclomote, con chicharrón</h5>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="mote1.jpg"  style="float:left;">
+						</td>
+						<td>
+							<form>
+								<fieldset style="border: 2;">
+									<legend>Pedidos</legend>
+										<label id="name">Nombre: </label>
+										<input type="text" id="nombre" placeholder="Ingrese su Nombre"></input><br>
+										<label># de Choclomotes: </label>
+										<input type="text" id="numChoclo" placeholder="Ingrese el Número de Platos que desea ordenar" onchange="calcular()"></input><br>
+										<label># de con Chicharrón: </label>
+										<input type="text" id="numChicharron" placeholder="Ingrese el Número de Platos con Chicharrón" onchange="calcular()"></input><br>
+										<label>En Cuántos Minutos viene por su Pedido: </label>
+										<input type="text" id="" ="minutos" placeholder="Ingrese el tiempo en que regresa por su pedido"></input><br>
+										<label>Subtotal: </label>
+										<input type="text" id= "subtotal"></input><br>
+										<label>IVA: </label>
+										<input type="text" id= "iva"></input><br>
+										<label>Total: </label>
+										<input type="text" id= "total"></input><br>
+										
+								</fieldset>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</center>
+
+<script type="text/javascript">
+
+function calcular() {
+	
+	var numeroChoclomotes = document.getElementById("numChoclo").value;
+	var numeroChicharrones = document.getElementById("numChicharron").value;
+	var totalChoclomotes = 0.0;
+	var totalChicharrones = 0.0;
+	const precio = 0.50;
+	var auxTotal = 0.0;
+	const IVA = 0.12;
+
+	totalChoclomotes = numeroChoclomotes * precio;
+	totalChicharrones = numeroChicharrones * precio;
+	auxTotal = totalChoclomotes + totalChicharrones;
+
+	document.getElementById("subtotal").value = auxTotal;
+
+	document.getElementById("iva").value = (document.getElementById("subtotal").value * IVA);
+
+	document.getElementById("total").value = parseFloat(document.getElementById("subtotal").value)  + parseFloat(document.getElementById("iva").value) ;
+
+}
+
+</script>
+</body>
+</html>
